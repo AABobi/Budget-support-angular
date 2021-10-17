@@ -1,9 +1,15 @@
 <div class="container">
-   
- <button (click) = hello() class="btn btn-success">
- hello
-</button>
-
+  <div>
+    Nick name : <input type="text" name="nickname" [(ngModel)]="nickname">
+    Passwordd : <input type="text" name="passwordd" [(ngModel)]="passwordd">
   </div>
 
-  <div style="background-color:grey;"></div>
+  <button  (click)=checkLogin()   class="btn btn-success">
+    Login
+  </button>
+  <td>{{stringIfWrongLogIn}}</td>
+ 
+
+</div>
+
+<div style="background-color:grey;"></div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthenticationService } from '../services/authentication.service';
 import { HttpClientService, User } from '../services/http-client.service';
 
 @Component({
@@ -8,10 +8,13 @@ import { HttpClientService, User } from '../services/http-client.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  userPermissions: User = new User(null, null, null, null, null, null, null);
+  constructor(
+    public loginService: AuthenticationService,
+    public httpClient: HttpClientService) { }
 
-  constructor(public httpClient: HttpClientService) { }
-
-  ngOnInit(): void {
-  }
+    ngOnInit() {
+    
+    }
 
 }
