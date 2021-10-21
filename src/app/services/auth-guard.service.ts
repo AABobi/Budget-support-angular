@@ -9,7 +9,7 @@ import { AuthenticationService } from './authentication.service';
 export class AuthGuardService {
 
   constructor(private router: Router,
-    private authService: AuthenticationService) { }
+              private authService: AuthenticationService) { }
 
 // tslint:disable-next-line: typedef
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

@@ -1,6 +1,6 @@
 <header >
   <!--Admin permissions-->
-
+<div *ngIf="test()">
 <nav  class ="navbar navbar-expand-md navbar-dark bg-dark">
    
   <ul  class="navbar-nav" >
@@ -8,9 +8,28 @@
      <li><a  routerLink="/AddVisitComponent" class="nav-link">Add visit</a></li>
      <li><a  routerLink="/login" class="nav-link">Login</a></li>
      <li><a  routerLink="/logout" class="nav-link">LogOut</a></li>-->
-     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/LoginComponent" class="nav-link">User account</a></li>
-     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/AdminComponent" class="nav-link">Admin</a></li>
+     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/LoginComponent" class="nav-link">Login</a></li>
+     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/LogoutComponent" class="nav-link">Logout</a></li>
+     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/UserComponent" class="nav-link">User</a></li>
    </ul>
    
    </nav>
+  </div>
+  
+  <div *ngIf="!test()">
+    <nav  class ="navbar navbar-expand-md navbar-dark bg-dark">
+       
+      <ul  class="navbar-nav" >
+        <!-- <li><a  routerLink="/UserAccountComponent" class="nav-link">User account</a></li>
+         <li><a  routerLink="/AddVisitComponent" class="nav-link">Add visit</a></li>
+         <li><a  routerLink="/login" class="nav-link">Login</a></li>
+         <li><a  routerLink="/logout" class="nav-link">LogOut</a></li>-->
+         <li><a *ngIf="!loginService.isAdminLoggedIn()" routerLink="/LoginComponent" class="nav-link">Login</a></li>
+         <li><a *ngIf="loginService.isAdminLoggedIn()" routerLink="/LogoutComponent" class="nav-link">Logout</a></li>
+         <li><a *ngIf="loginService.isAdminLoggedIn()" routerLink="/AdminComponent" class="nav-link">Admin</a></li>
+         <li><a *ngIf="loginService.isAdminLoggedIn()" routerLink="/UserComponent" class="nav-link">User</a></li>
+       </ul>
+       
+       </nav>
+      </div>
 </header>

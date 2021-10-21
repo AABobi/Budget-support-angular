@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminComponent } from './admin/admin.component';
+import { UserComponent } from './user/user.component';
+import { LogoutComponent } from './logout/logout.component';
+import { CreateBudgetComponent } from './create-budget/create-budget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    AdminComponent
+    AdminComponent,
+    UserComponent,
+    LogoutComponent,
+    CreateBudgetComponent
   ],
   imports: [
     BrowserModule,

@@ -14,8 +14,24 @@ export class AuthenticationService implements OnInit {
 
   // tslint:disable-next-line: typedef
   isUserLoggedIn() {
-    const user = sessionStorage.getItem('function');
-    console.log(!(user === null));
-    return !(user === 'test');
+    const user = sessionStorage.getItem('nickname');
+    if ((user === 'NC') || (user === null)){
+      return false;
+    }
+    else {
+      return true;
+    }
   }
+
+  isAdminLoggedIn(): boolean {
+    const user = sessionStorage.getItem('function');
+    console.log('idadminlogged - authentication');
+    console.log(sessionStorage.getItem('function'));
+    console.log(!(user === null));
+    return (user === 'admin');
+  }
+
+  logout(): void
+  {sessionStorage.removeItem('nickname');
+}
 }

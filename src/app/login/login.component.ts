@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { HttpClientService,Password, User } from '../services/http-client.service';
+import { HttpClientService, Password, User } from '../services/http-client.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   stringIfWrongLogIn = '';
   loginPass: User = new User(null, null, null, null, null, null, null);
   findUserObj: User = new User(null, null, null, null, null, null, null);
-  password: Password = new Password(0,'');
+  password: Password = new Password(0, '');
   constructor(
     private router: Router,
     private httpClient: HttpClientService) { }
@@ -25,16 +25,30 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  adminLog(): void{
+    sessionStorage.setItem('function', 'admin');
+    this.router.navigate(['AdminComponent']);
+  }
+
   checkLogin(): void{
-    /*this.loginPass.nickname = this.nickname;
+    this.loginPass.nickname = this.nickname;
     this.password.password = this.passwordd;
     this.loginPass.password = this.password;
     this.httpClient.checkLogin(this.loginPass).subscribe(
     data => {this.findUserObj = data;
-             if (this.findUserObj.name === 'NC'){
-      this.stringIfWrongLogIn = 'NC';
+   /*          if (this.findUserObj.name === 'NC'){
+             alert('Wrong password or user nickname');
+             window.location.reload();
+    }else{
+             console.log('find log');
+             sessionStorage.setItem('nickname', this.findUserObj.nickname);
+             this.router.navigate(['UserComponent']);
+             //window.location.reload();
       }
-    }
-    );*/
-    sessionStorage.setItem('function', 'test');
+    */
+             sessionStorage.setItem('nickname', 'nickname1');
+             this.router.navigate(['UserComponent']);
+  }
+    );
+
   }}

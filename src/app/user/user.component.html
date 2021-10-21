@@ -1,0 +1,35 @@
+<div *ngIf = "userVision" class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Budget name</th>
+         
+    
+          </tr>
+         
+        </thead>
+        <tbody>
+            <tr *ngFor="let budg of listOfBudgets">
+                 <td>{{budg.budgetName}}</td>
+                 <td><button (click)=changeVision(budg)>Show budget</button></td>
+                 <td><button (click)=createBudget()>creat</button></td>
+                 </tr>
+                 <td></td>
+             </tbody>
+      </table>
+      <td><button (click)="createBudget()" class="btn btn-success">Create new budget</button></td>
+</div>
+<div *ngIf = "!userVision">
+<table class="table table-striped">
+  <thread>
+    <tr *ngFor="let oneBudg of budgetArray">
+      <td>{{oneBudg.groupName}}</td>
+ <td> <button (click)=changeVision(null)>change sth</button></td>
+    </tr>
+  </thread>
+</table>
+
+</div>
+
+
+

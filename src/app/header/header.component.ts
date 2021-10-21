@@ -17,4 +17,15 @@ export class HeaderComponent implements OnInit {
     
     }
 
+    test(): boolean{
+      /*console.log(sessionStorage.getItem('function'));
+      if (sessionStorage.getItem('function') === 'admin'){
+        console.log('test false');
+        return false;
+      }
+      console.log('test true');*/
+      return true;
+      
+    }
+
 }
