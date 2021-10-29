@@ -12,7 +12,7 @@
             <tr *ngFor="let budg of listOfBudgets">
                  <td>{{budg.budgetName}}</td>
                  <td><button (click)=changeVision(budg)>Show budget</button></td>
-                 <td><button (click)=createBudget()>creat</button></td>
+                 <td><button (click)=deleteBudget(budg.id)>delete</button></td>
                  </tr>
                  <td></td>
              </tbody>

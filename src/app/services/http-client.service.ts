@@ -11,17 +11,20 @@ export class User{
  public name: string;
  public lastname: string;
  public email: string;
- public permissions: string;
  public password: Password;
+ public userAssignmentToGroup: Array<UserAssignmentToGroup>;
+ public permission: Array<Permission>;
 
- constructor(id: number, nickname: string, name: string, lastname: string, email: string , permissions: string, password: Password){
+ constructor(id: number, nickname: string, name: string, lastname: string, email: string,
+             password: Password, userAssinmentToGroup: Array<UserAssignmentToGroup>, permission: Array<Permission>){
     this.id = id;
     this.nickname = nickname;
     this.name = name;
     this.email = email;
     this.lastname = lastname;
-    this.permissions = permissions;
+    this.permission = permission;
     this.password = password;
+    this.userAssignmentToGroup = userAssinmentToGroup;
   }
 
 }
@@ -40,35 +43,46 @@ export class Budget{
   public id: number;
   public description: string;
   public uniqueGroupCode: string;
-  public groupName: string;
-  public user: User;
+  public budgetName: string;
+  public userName: string;
 
- constructor(id: number, description: string, uniqueGroupCode: string, groupName: string, user: User){
+ constructor(id: number, description: string, uniqueGroupCode: string, budgetName: string, userName: string){
     this.id = id;
     this.description = description;
     this.uniqueGroupCode = uniqueGroupCode;
-    this.groupName = groupName;
-    this.user = user;
+    this.budgetName = budgetName;
+    this.userName = userName;
  }
 }
 
+export class Permission{
+  public id: number;
+  public uniqueGroupCode: string;
+
+  constructor(id: number, uniqueGroupCode: string){
+    this.id = id;
+    this.uniqueGroupCode = uniqueGroupCode;
+
+  }
+
+}
 export class UserAssignmentToGroup{
   public id: number;
   public budgetList: Array<Budget>;
-  public user: User;
   public budgetName: string;
   public uniqueGroupCode: string;
 
-  constructor(id: number, budgetList: Array<Budget>, user: User, budgetName: string, uniqueGroupCode: string){
+  constructor(id: number, budgetList: Array<Budget>, budgetName: string, uniqueGroupCode: string){
    this.id = id;
    this.budgetList = budgetList;
-   this.user = user;
    this.budgetName = budgetName;
    this.uniqueGroupCode = uniqueGroupCode;
   }
-
-
 }
+
+
+
+
 
 export class List<T> {
   private items: Array<T>;
@@ -108,12 +122,17 @@ export class HttpClientService {
     return this.httpClient.post<User>('http://localhost:8080//checkLogin', user);
   }
 
+// tslint:disable-next-line:typedef
+public deleteBudget(uniqueGroupCode){
+  return this.httpClient.delete<null>('http://localhost:8080//deleteBudget' + '/' + uniqueGroupCode);
+}
+
   // tslint:disable-next-line:typedef
   public firstConnection() {
     return this.httpClient.get<User>('http://localhost:8080//firstConn');
   }
 
-  public findAllBudgetsOfUser(user): Observable<UserAssignmentToGroup[]>{
-    return this.httpClient.post<UserAssignmentToGroup[]>('http://localhost:8080/findAllBudgetsOfUser', user);
+  public findAllBudgetsOfUser(user): Observable<User>{
+    return this.httpClient.post<User>('http://localhost:8080/findAllBudgetsOfUser', user);
    }
 }

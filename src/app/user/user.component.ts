@@ -17,6 +17,9 @@ export class UserComponent implements OnInit {
   userVision = true;
   listOfBudgets: UserAssignmentToGroup[] = [];
   budgetArray: Budget[] = [];
+
+  userForDisplayBudgets: User = new User(null, null, null, null, null, null, null, null, );
+
   usersArray: User[] = [
     {
       id: 1,
@@ -24,14 +27,16 @@ export class UserComponent implements OnInit {
       name: 'aa',
       email: 'aa',
       lastname: 'aa',
-      permissions: 'aa',
-      password: null
+      password: null,
+      userAssignmentToGroup: null,
+      permission: null
      }
   ];
   ngOnInit(): void {
-    const user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null);
+    const user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null);
     this.httpClient.findAllBudgetsOfUser(user).subscribe(data => {
-      this.listOfBudgets = data;
+     this.userForDisplayBudgets = data;
+     this.listOfBudgets = data.userAssignmentToGroup;
         });
   }
 
@@ -49,7 +54,7 @@ export class UserComponent implements OnInit {
     if (this.userVision){
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < budgets.budgetList.length; i++){
-      if (budgets.budgetName === budgets.budgetList[i].groupName) {
+      if (budgets.budgetName === budgets.budgetList[i].budgetName) {
         budgetArrayInsideThisMethod[i - sizeBudgetArrayDisplay] = budgets.budgetList[i];
       }else{
         sizeBudgetArrayDisplay++;
@@ -62,5 +67,11 @@ export class UserComponent implements OnInit {
   }else{
     this.userVision = true;
   }
+  }
+
+  // tslint:disable-next-line:typedef
+  deleteBudget(uniqueGroupCode: number){
+    this.httpClient.deleteBudget(uniqueGroupCode).subscribe();
+    window.location.reload();
   }
 }
