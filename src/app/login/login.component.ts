@@ -36,18 +36,14 @@ export class LoginComponent implements OnInit {
     this.loginPass.password = this.password;
     this.httpClient.checkLogin(this.loginPass).subscribe(
     data => {this.findUserObj = data;
-   /*          if (this.findUserObj.name === 'NC'){
+             if (this.findUserObj.name === 'NC'){
              alert('Wrong password or user nickname');
              window.location.reload();
     }else{
-             console.log('find log');
              sessionStorage.setItem('nickname', this.findUserObj.nickname);
              this.router.navigate(['UserComponent']);
-             //window.location.reload();
-      }
-    */
-             sessionStorage.setItem('nickname', 'nickname1');
-             this.router.navigate(['UserComponent']);
+             // window.location.reload();
+    }
   }
     );
 

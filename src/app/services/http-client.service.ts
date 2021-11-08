@@ -42,13 +42,15 @@ export class Password{
 export class Budget{
   public id: number;
   public description: string;
+  public value: number;
   public uniqueGroupCode: string;
   public budgetName: string;
   public userName: string;
 
- constructor(id: number, description: string, uniqueGroupCode: string, budgetName: string, userName: string){
+ constructor(id: number, description: string, value: number, uniqueGroupCode: string, budgetName: string, userName: string){
     this.id = id;
     this.description = description;
+    this.value = value;
     this.uniqueGroupCode = uniqueGroupCode;
     this.budgetName = budgetName;
     this.userName = userName;
@@ -113,6 +115,16 @@ export class HttpClientService {
     private httpClient: HttpClient
   ) { }
 
+// tslint:disable-next-line:typedef
+public addNewMemberToTheBudget(user){
+  return this.httpClient.post<null>('http://localhost:8080//addNewMemberToTheBudget', user);
+}
+
+// tslint:disable-next-line:typedef
+public addDescriptionToTheBudget(user){
+  return this.httpClient.post<User>('http://localhost:8080//addDescriptionToTheBudget', user);
+}
+
   public createBudget(array): Observable<null>{
        return this.httpClient.post<null>('http://localhost:8080//createBudget', array);
   }
@@ -127,11 +139,19 @@ public deleteBudget(uniqueGroupCode){
   return this.httpClient.delete<null>('http://localhost:8080//deleteBudget' + '/' + uniqueGroupCode);
 }
 
+// tslint:disable-next-line:typedef
+public deleteEntry(budget){
+  return this.httpClient.post<UserAssignmentToGroup>('http://localhost:8080//deleteEntry', budget);
+}
   // tslint:disable-next-line:typedef
   public firstConnection() {
     return this.httpClient.get<User>('http://localhost:8080//firstConn');
   }
 
+  // tslint:disable-next-line:typedef
+  public findUser(user){
+    return this.httpClient.post<User>('http://localhost:8080//findUser', user);
+  }
   public findAllBudgetsOfUser(user): Observable<User>{
     return this.httpClient.post<User>('http://localhost:8080/findAllBudgetsOfUser', user);
    }
