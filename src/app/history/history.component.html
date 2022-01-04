@@ -1,0 +1,54 @@
+
+<div *ngIf = "!userVision">
+   
+ <table class="table">
+    
+    <thead>
+      <tr>
+        <td><b>Description</b></td>
+        <td><b>Value</b></td>
+        <td><b>Who</b></td>
+        <td><b>Date</b></td>
+       </tr>
+       
+      </thead>
+      <tbody>
+          <tr *ngFor="let bud of inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetList">
+               <td>{{bud.description}}</td>
+               <td>{{bud.value}}</td>
+               <td>{{bud.userName}}</td>
+               <td>{{bud.date}}</td>
+               <button (click)=deleteEntry(bud) class="deleteEntryButton"> Delete entry</button>
+               </tr>
+               <td></td>
+           </tbody>
+          </table>
+          
+      
+  </div>
+
+  <div *ngIf = "userVision">
+   <button (click)="refresh()">aa</button>
+
+    <table class="table">
+    
+        <thead>
+          <tr>
+            <td><b>Budget name</b></td>
+           </tr>
+           
+          </thead>
+          <tbody>
+              <tr *ngFor="let bud of listOfBudgets">
+                   <td>{{bud.budgetName}}</td>
+            
+                   </tr>
+                   <td></td>
+               </tbody>
+              </table>
+              
+          
+</div>
+
+
+  

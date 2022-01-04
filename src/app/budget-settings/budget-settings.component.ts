@@ -172,6 +172,7 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
    const temporaryYearValueEnd = new Number(this.yearEnd);
   // tslint:disable-next-line:no-construct
    const temporaryDayValueEnd = new Number(this.dayEnd);
+   //alert(temporaryDayValueEnd); HERE IS OK
    let stringToCreateEndDateDay;
    let stringToCreateEndDateMonth;
    switch (this.dayEnd < 10){
@@ -196,8 +197,8 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
   }
 
  // tslint:disable-next-line:max-line-length
-   const startDateEnd = temporaryYearValueEnd.toString().concat('-').concat(stringToCreateEndDateDay).concat('-').concat(stringToCreateEndDateMonth);
-
+   const startDateEnd = temporaryYearValueEnd.toString().concat('-').concat(stringToCreateEndDateMonth).concat('-').concat(stringToCreateEndDateDay);
+  
   // tslint:disable-next-line:max-line-length
    const userAssignemtToGroup: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, null, null, sessionStorage.getItem('uniqueCode'), startDate, startDateEnd, this.goalValue, null);
 

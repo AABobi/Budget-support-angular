@@ -16,6 +16,7 @@ import { CreateBudgetComponent } from './create-budget/create-budget.component';
 import { BudgetSettingsComponent } from './budget-settings/budget-settings.component';
 import { ExpectetExpansesComponent } from './expectet-expanses/expectet-expanses.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     CreateBudgetComponent,
     BudgetSettingsComponent,
     ExpectetExpansesComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

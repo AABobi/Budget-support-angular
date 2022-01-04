@@ -12,6 +12,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { AuthGuardService } from '../app/services/auth-guard.service';
 import { AuthenticationService } from '../app/services/authentication.service';
 import { Budget, HttpClientService, Permission, User, UserAssignmentToGroup} from '../app/services/http-client.service';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'ExpectetExpansesComponent', component: ExpectetExpansesComponent, canActivate: [AuthGuardService]},
   {path: 'RegisterUserComponent', component: RegisterUserComponent},
   {path: 'RegisterUserComponent/:code', component: RegisterUserComponent},
+  {path: 'HistoryComponent', component: HistoryComponent, canActivate: [AuthGuardService]}
 
 ];
 

@@ -13,6 +13,7 @@ export class User{
  public email: string;
  public password: Password;
  public userAssignmentToGroup: Array<UserAssignmentToGroup>;
+ public history: Array<History>;
  public permission: Array<Permission>;
  public confirm: boolean;
 
@@ -119,7 +120,7 @@ export class UserAssignmentToGroup{
   }
 }
 
-export class UserAssignmentToGroupHistory{
+export class History{
   public id: number;
   public budgetList: Array<Budget>;
   public budgetName: string;
@@ -141,6 +142,7 @@ export class UserInBudget{
     this.nickname = nickname;
     }
   }
+
 
 
 
