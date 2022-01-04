@@ -44,14 +44,16 @@ export class Budget{
   public description: string;
   public value: number;
   public uniqueGroupCode: string;
+  public date: string;
   public budgetName: string;
   public userName: string;
 
- constructor(id: number, description: string, value: number, uniqueGroupCode: string, budgetName: string, userName: string){
+ constructor(id: number, description: string, value: number, uniqueGroupCode: string, budgetName: string, userName: string, date: string){
     this.id = id;
     this.description = description;
     this.value = value;
     this.uniqueGroupCode = uniqueGroupCode;
+    this.date = date;
     this.budgetName = budgetName;
     this.userName = userName;
  }
@@ -135,8 +137,8 @@ public addDescriptionToTheBudget(user){
   }
 
 // tslint:disable-next-line:typedef
-public deleteBudget(uniqueGroupCode){
-  return this.httpClient.delete<null>('http://localhost:8080//deleteBudget' + '/' + uniqueGroupCode);
+public deleteBudget(user){
+  return this.httpClient.post<null>('http://localhost:8080//deleteBudget', user);
 }
 
 // tslint:disable-next-line:typedef
@@ -144,15 +146,20 @@ public deleteEntry(budget){
   return this.httpClient.post<UserAssignmentToGroup>('http://localhost:8080//deleteEntry', budget);
 }
   // tslint:disable-next-line:typedef
-  public firstConnection() {
-    return this.httpClient.get<User>('http://localhost:8080//firstConn');
-  }
+public firstConnection() {
+  return this.httpClient.get<User>('http://localhost:8080//firstConn');
+}
 
   // tslint:disable-next-line:typedef
-  public findUser(user){
-    return this.httpClient.post<User>('http://localhost:8080//findUser', user);
-  }
-  public findAllBudgetsOfUser(user): Observable<User>{
-    return this.httpClient.post<User>('http://localhost:8080/findAllBudgetsOfUser', user);
-   }
+public findUser(user){
+  return this.httpClient.post<User>('http://localhost:8080//findUser', user);
+}
+public findAllBudgetsOfUser(user): Observable<User>{
+  return this.httpClient.post<User>('http://localhost:8080/findAllBudgetsOfUser', user);
+}
+
+// tslint:disable-next-line:typedef
+public leaveBudget(user){
+  return this.httpClient.post<null>('http://localhost:8080/leaveTheGroup', user);
+}
 }

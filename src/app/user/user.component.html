@@ -10,7 +10,8 @@
             <tr *ngFor="let budg of listOfBudgets">
                  <td>{{budg.budgetName}}</td>
                  <td><button (click)=changeVision(budg)>Show budget</button></td>
-                 <td><button (click)=deleteBudget(budg.id)>delete</button></td>
+                 <td><button (click)=deleteBudget(budg)>Remove</button></td>
+                 <td><button (click)=leaveBudget(budg)>Leave</button></td>
                  <td><button (click)="addNewMemberToTheBudget(budg)" class="btn btn-success">Add friend</button></td>
                  </tr>
                  
@@ -28,7 +29,7 @@
         <button (click)=addDescriptionToTheBudget()> Add</button>
         <td><button (click)=changeVision(budg)>Back</button></td>
       
-        <td><button (click)="addNewMemberToTheBudget2()" class="btn btn-success">Add friend</button></td>
+        <td><button (click)="addNewMemberToTheBudget()" class="btn btn-success">Add friend</button></td>
         nickname : <input type="text" name=friendNick [(ngModel)]=friendNick>
 
 <table class="table table-striped">
@@ -36,11 +37,13 @@
   <thead>
     <tr>
       <th>Budget name</th>
+      <th>Value</th>
+      <th>Who</th>
      </tr>
      
     </thead>
     <tbody>
-        <tr *ngFor="let bud of budgetArray2">
+        <tr *ngFor="let bud of inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetList">
              <td>{{bud.description}}</td>
              <td>{{bud.value}}</td>
              <td>{{bud.userName}}</td>
@@ -49,7 +52,7 @@
              <td></td>
          </tbody>
         </table>
-
+<td>{{getNumber()}}</td>
 </div>
 
 
