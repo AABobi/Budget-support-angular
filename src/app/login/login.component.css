@@ -1,16 +1,52 @@
+.registerButton{  
+  position: absolute;
+  border-radius: 12px;
+  left: 740px;
+  top: 355px;
+  border: none;
+  background-color: #c084b6d0;
+  color: white;
+  padding: 15px 22px;
+  cursor:pointer;
+}
+
 .container {
-    width: 500px;
-    clear: both;
-  }
-  
-  .container input {
-    width: 100%;
-    clear: both;
-  }
-  .fastLoginButtonDoc{
-    color:white;
-    width:35%;
-    margin-left:0%;
-    margin-right:55%;
-    background-color: #0d3fca;
-  }
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+.fastLoginButtonDoc{
+  position: absolute;
+  color:white;
+  width:35%;
+  margin-left:0%;
+  margin-right:55%;
+  background-color: #0d3fca;
+}
+
+.loginTextPlaceNick{
+  position: absolute;
+  left: 700px;
+  top: 255px;
+}
+
+.loginTextPlacePass{
+  position: absolute;
+  left: 699px;
+  top: 300px;
+}
+.loginButton{
+  position: absolute;
+  border-radius: 12px;
+  left: 950px;
+  top: 355px;
+  border: none;
+  background-color: #c084b6d0;
+  color: white;
+  padding: 15px 22px; 
+  cursor:pointer;
+}

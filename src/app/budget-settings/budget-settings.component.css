@@ -1,0 +1,87 @@
+.back{
+  position: absolute;
+    left: 1800px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    cursor:pointer;
+}
+
+.confirmButton{
+    border-radius: 12px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    cursor:pointer;
+}
+.chooseDay{
+    position: absolute;
+    left: 500px;
+    top: 180px;
+  }
+
+
+  .chooseMonth{
+    position: absolute;
+    left: 300px;
+    top: 180px;
+  }
+
+  .chooseYear{
+    position: absolute;
+    left: 100px;
+    top: 180px;
+  }
+
+  
+  .chooseDayEnd{
+    position: absolute;
+    left: 500px;
+    top: 250px;
+  }
+
+
+  .chooseMonthEnd{
+    position: absolute;
+    left: 300px;
+    top: 250px;
+  }
+
+  .chooseYearEnd{
+    position: absolute;
+    left: 100px;
+    top: 250px;
+  }
+
+  .goalField{
+    position: absolute;
+    left: 150px;
+    top: 90px;
+  }
+
+  .saveButton{
+    position: absolute;
+    top: -5px;
+    left: 305px;
+    padding: 10px 8px;
+    border-radius: 12px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    cursor:pointer;
+  }
+
+  table {
+    position: absolute;
+    top: 290px;
+    table-layout: fixed;
+    width: 30%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+  }
+  
+  
+  
+ 

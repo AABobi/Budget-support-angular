@@ -1,44 +1,74 @@
-<div *ngIf = "userVision" class="container">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Budget name</th>
-         </tr>
-         
-        </thead>
-        <tbody>
-            <tr *ngFor="let budg of listOfBudgets">
-                 <td>{{budg.budgetName}}</td>
-                 <td><button (click)=changeVision(budg)>Show budget</button></td>
-                 <td><button (click)=deleteBudget(budg)>Remove</button></td>
-                 <td><button (click)=leaveBudget(budg)>Leave</button></td>
-                 <td><button (click)="addNewMemberToTheBudget(budg)" class="btn btn-success">Add friend</button></td>
-                 </tr>
+
+<div *ngIf = "userVision" >
+
+  <button (click)="refreshList()" class="refresh">Refresh</button>
+  
+    <!--<button (click)="createBudget()" class="createBugdet">Create new budget</button>-->
+  <tr>
+    <th class="budgetName">Budget name</th>
+   </tr>
+  <table class="table">
+       <thead>
+       </thead>
+       <tbody *ngFor="let budg of budgetWithPermissionToRemove ">
+        <td class="budgetNameFont">{{budg.budgetName}}</td>
+        <td><button (click)=changeVision(budg) class="showBudget">Show budget</button></td>
+        <td><button (click)=deleteBudget(budg) class="remove">Remove</button></td>
+        <td><button (click)=leaveBudget(budg) class="leave">Leave</button></td>
+      </tbody>
+                 <!--<ng-conteiner *ngFor="let vision of booleanArray">
+                </ng-conteiner>-->
+                <!--
+ 
+               
+
+ <tbody *ngFor="let vision of booleanArray">
+        <ng-conteiner *ngFor="let budg of listOfBudgets">
+               <td class="budgetNameFont">{{budg.budgetName}}</td>
+               <td><button (click)=changeVision(budg) class="showBudget">Show budget</button></td>
+               <td *ngIf ="vision"><button (click)=deleteBudget(budg) class="remove">Remove</button></td>
+               <td><button (click)=leaveBudget(budg) class="leave">Leave</button></td>
+               </ng-conteiner>
+
+                -->
                  
-             </tbody>
+             <tbody *ngFor="let budg2 of budgetWithoutPermissionToRemove ">
+               <td class="budgetNameFont">{{budg2.budgetName}}</td>
+               <td><button (click)=changeVision(budg2) class="showBudget">Show budget</button></td>
+               <td><button (click)=leaveBudget(budg2) class="leave">Leave</button></td>
+              </tbody>
       </table>
-      <td><button (click)="createBudget()" class="btn btn-success">Create new budget</button></td>
-   
+      
       
 </div>
-<div *ngIf = "!userVision">
-  <div>
-    <td><h3>Find user</h3></td>
-             v : <input type="text" name=value [(ngModel)]=value>
-             d : <input type="text" name=description [(ngModel)]=description>
-        <button (click)=addDescriptionToTheBudget()> Add</button>
-        <td><button (click)=changeVision(budg)>Back</button></td>
-      
-        <td><button (click)="addNewMemberToTheBudget()" class="btn btn-success">Add friend</button></td>
-        nickname : <input type="text" name=friendNick [(ngModel)]=friendNick>
 
-<table class="table table-striped">
+<div *ngIf = "!userVision">
+  <button (click)=changeVision(budg) class="back">Back</button>
+  <button (click)="addNewMemberToTheBudget()" class="addNewMemberButton">Add friend</button>
+  <button (click)="addExpectedExpanses()" class="addExpectedExpanses">Add expected expanses</button>
+  <button (click)=addDescriptionToTheBudget() class="addDescription"> Add</button>
+  <button (click)="budgetSettings()" class="budgetSettingCss">Budget setting</button>
+  
+  <td class="descriptionTextField">Description : <input type="text" name=description [(ngModel)]=description></td>
+  <td class="valueTextField">Value : <input type="text" name=value [(ngModel)]=value></td>
+  <td class="addNewMemberTextField">nickname : <input type="text" name=friendNick [(ngModel)]=friendNick></td>
+  
+  <td class="budgetDate">Term:</td>
+  <td class="budgetDateStart">{{inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetStartDate}}</td>
+  <td class="budgetDateEnd">{{inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetEndDate}}</td>
+  <div *ngIf = "!fontColor"><td class="budgetGoalFalse">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal}}</td></div>
+  <div *ngIf = "fontColor"><td class="budgetGoal" style="color:red">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal}}</td></div>
+  <td class="totalValue">Total value:  {{TotalValue}}</td>
+  <td class="expectedExpanses">Expected expenses:  {{expectedExpenses}}</td>
+ 
+<table class="table">
   
   <thead>
     <tr>
-      <th>Budget name</th>
-      <th>Value</th>
-      <th>Who</th>
+      <td><b>Description</b></td>
+      <td><b>Value</b></td>
+      <td><b>Who</b></td>
+      <td><b>Date</b></td>
      </tr>
      
     </thead>
@@ -47,13 +77,14 @@
              <td>{{bud.description}}</td>
              <td>{{bud.value}}</td>
              <td>{{bud.userName}}</td>
-             <button (click)=deleteEntry(bud)> Delete entry</button>
+             <td>{{bud.date}}</td>
+             <button (click)=deleteEntry(bud) class="deleteEntryButton"> Delete entry</button>
              </tr>
              <td></td>
          </tbody>
         </table>
-<td>{{getNumber()}}</td>
+        
+    
 </div>
 
-
-
+<!---->

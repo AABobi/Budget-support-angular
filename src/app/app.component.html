@@ -1,8 +1,23 @@
 <html>
   <head></head>
-  <body style="background-color:grey;">
-      <app-header></app-header>
-        <router-outlet></router-outlet> 
+  <body >
+    <!-- to do ap component css html {   background-color: #6495ED; } style="background-color:#6495ED;"-->  
+    <app-header></app-header>
+  
+    <!--<select (change)="setStartDayEnd($event.target.value)">
+     <option *ngFor="let de of daysEnd">{{de}}</option>
+  </select>-->
+    <router-outlet></router-outlet>
+
+   
+   <!-- <div *ngIf="loginService.isUserLoggedIn()" class="box">
+      <select (change)="goToSection($event.target.value)">
+        <option *ngFor="let o of optionsLoginTrue">{{o}}</option>
+  </select>
+</div>
+<div *ngIf="!loginService.isUserLoggedIn()"></div>
+     
+-->
      </body>
 
 </html> 

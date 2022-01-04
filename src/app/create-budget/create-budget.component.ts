@@ -28,4 +28,10 @@ export class CreateBudgetComponent implements OnInit {
     this.httpClient.createBudget(arrayWithInformationAboutNewBudget).subscribe();
     this.router.navigate(['UserComponent']);
  }
+
+ goBack(): void{
+    this.router.navigate(['UserComponent']);
+ }
+
+
 }

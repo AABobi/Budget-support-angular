@@ -1,0 +1,49 @@
+<td class="descriptionTextField">Description : <input type="text" name=description [(ngModel)]=description></td>
+  <td class="valueTextField">Value : <input type="text" name=value [(ngModel)]=value></td>
+  <button class="addExpectedExpenses" (click)=addExpectedExpanses()> Add</button>
+  <button (click)="back()" class="back">Back</button>
+      
+            <button (click)="refreshList()" class="refresh">Refresh</button>
+            <div class="chooseYear">
+              <select (change)="setStartYear($event.target.value)">
+                <option *ngFor="let y of years">{{y}}</option>
+             </select>
+             </div>
+             
+             <div class="chooseMonth">
+               <select (change)="setStartMonth($event.target.value)">
+                 <option *ngFor="let m of months">{{m}}</option>
+               </select>
+             </div>
+             
+             <div class="chooseDay">
+               <select (change)="setStartDay($event.target.value)">
+                 <option *ngFor="let d of days">{{d}}</option>
+               </select>
+             </div>
+
+            <div>
+                <table class="table">
+      
+                    <thead>
+                      <tr>
+                        <td><b>Description</b></td>
+                        <td><b>Value</b></td>
+                        <td><b>Who</b></td>
+                        <td><b>Date</b></td>
+                       </tr>
+                       
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let bud of userAssignmentToGroup.expectedExpensesList">
+                               <td>{{bud.description}}</td>
+                               <td>{{bud.value}}</td>
+                               <td>{{bud.userName}}</td>
+                               <td>{{bud.date}}</td>
+                               <button (click)=deleteEntry(bud) class="delete"> Delete entry</button>
+                               <button (click)=addToDiscriptions(bud) class="done"> Done</button>
+                               </tr>
+                               <td></td>
+                           </tbody>
+                          </table>
+                        </div>

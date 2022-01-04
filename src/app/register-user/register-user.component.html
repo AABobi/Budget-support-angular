@@ -1,0 +1,24 @@
+<div *ngIf="vision">
+<div class="loginTextPlaceNick">
+    <td>Nickname : <input type="text" name="nickname" [(ngModel)]="nickname"></td>
+  </div>
+  <div class="loginTextPlacePass">
+    <td>Password : <input type="text" name="passwordString" [(ngModel)]="passwordString"></td>
+  </div>
+  <div class="registerTextFieldEmail">
+    <td>Email : <input type="text" name="email" [(ngModel)]="email"></td>
+  </div>
+  <div class="registerTextFieldName">
+    <td>Name : <input type="text" name="name" [(ngModel)]="name"></td>
+  </div>
+  <div class="registerTextFieldLastname">
+    <td>Lastname : <input type="text" name="lastname" [(ngModel)]="lastname"></td>
+  </div>
+  <button (click)="registerUser()" class="registerButton">Register</button>
+  <button (click)=goToLogin() class="back">Back</button>
+</div>
+
+<div *ngIf="!vision">
+<button (click)="confirm()" class="confirmButton">Active account</button>
+<button (click)="goToLogin()" class="backButton">Back</button>
+</div>

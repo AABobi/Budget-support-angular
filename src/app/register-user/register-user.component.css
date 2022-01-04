@@ -1,0 +1,76 @@
+.back{
+    position: absolute;
+      left: 1800px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: none;
+      background-color: #c084b6d0;
+      color: white;
+      cursor:pointer;
+  }
+  .backButton{
+    position: absolute;
+    top: 160px;  
+    left: 1000px;
+      padding: 100px 90px;
+      border-radius: 12px;
+      border: none;
+      background-color: #b4329fd0;
+      color: white;
+      cursor:pointer;
+  }
+
+  .confirmButton{
+    position: absolute;
+    top: 160px;  
+    left: 500px;
+      padding: 100px 90px;
+      border-radius: 12px;
+      border: none;
+      background-color: #cf1170d0;
+      color: white;
+      cursor:pointer;
+  }
+
+.loginTextPlaceNick{
+    position: absolute;
+    left: 695px;
+    top: 255px;
+  }
+  
+
+  .loginTextPlacePass{
+    position: absolute;
+    left: 699px;
+    top: 300px;
+  }
+
+  .registerTextFieldEmail{
+    position: absolute;
+    left: 721px;
+    top: 345px;
+  }
+
+  .registerTextFieldName{
+    position: absolute;
+    left: 721px;
+    top: 390px;
+  }
+
+  .registerTextFieldLastname{
+    position: absolute;
+    left: 696px;
+    top: 435px;
+  }
+
+  .registerButton{
+    position: absolute;
+    border-radius: 12px;
+    left: 800px;
+    top: 555px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    padding: 15px 22px;   
+    cursor:pointer;
+  }

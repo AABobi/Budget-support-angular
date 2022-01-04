@@ -1,4 +1,260 @@
+.addExpectedExpanses{
+  position: absolute;
+  top: 57px;
+  left: 1155px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: #c084b6d0;
+  color: white;
+  cursor:pointer;
+}
+
+.addDescription{
+    position: absolute;
+    top: 180px;
+    left: 215px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    cursor:pointer;
+}
+
+.addNewMemberButton{
+  position: absolute;
+    top: 105px;
+    left: 1555px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: #c084b6d0;
+    color: white;
+    cursor:pointer;
+}
+
+.addNewMemberTextField{
+  position: absolute;
+  left: 1400px;
+  top: 50px;
+}
+.back{
+  position: absolute;
+    left: 1800px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: hsla(310, 32%, 64%, 0.816);
+    color: white;
+    cursor:pointer;
+}
+
+.budgetName{
+  position: absolute;
+  left: 0px;
+  top: 230px;
+  font-size: 35px;
+}
+
+.budgetNameFont{
+  font-style: italic;
+  font-family:Courier New;
+  font-weight: bold;
+}
+
+
+.budgetSettingCss{
+  position: absolute;
+  top: 117px;
+  left: 1155px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: #c084b6d0;
+  color: white;
+  cursor:pointer;
+}
+
+
+.budgetDate{
+  position: absolute;
+  left: 650px;
+  top: 50px;
+  font-size: 33px;
+}
+
+.budgetDateStart{
+  position: absolute;
+  left: 650px;
+  top: 100px;
+  font-size: 33px;
+}
+
+.budgetDateEnd{
+  position: absolute;
+  left: 650px;
+  top: 150px;
+  font-size: 33px;
+}
+
+
+.budgetGoal{
+  position: absolute;
+  color: red;
+  left: 384px;
+  top: 50px;
+  font-size: 35px;
+}
+.budgetGoalFalse{
+  position: absolute;
+  left: 384px;
+  top: 50px;
+  font-size: 35px;
+}
+
 .container {
     width: 500px;
     clear: both;
+  }
+
+
+  .createBugdet{
+    position: absolute;
+    border-radius: 12px;
+    left: 500px;
+    top: 55px;
+    border: none;
+    background-color: #e02dd7fb;
+    color: white;
+    padding: 25px 20px;
+    cursor:pointer;
+    font-size: 33px;
+  }
+
+.descriptionTextField{
+  position: absolute;
+  left: 0px;
+  top: 90px;
+}
+
+.deleteEntryButton{
+  position: absolute;
+  left: 1500px;
+  border-radius: 12px;
+  border: none;
+  background-color: #c084b6d0;
+  color: white;
+  padding: 11px 7px;
+  cursor:pointer;
+}
+
+
+
+  .expectedExpanses {
+    position: absolute;
+  left: 210px;
+  top: 220px;
+  font-size: 35px;
+  }
+
+  .fastLoginButtonDoc{
+    color:white;
+    width:35%;
+    margin-left:0%;
+    margin-right:55%;
+    background-color: #0dca0d;
+     border: none;
+     cursor:pointer;
+  }
+
+
+  .leave{
+    position: absolute;
+    left: 1500px;
+    border-radius: 12px;
+    border: none;
+    background-color: #267cddd0;
+    color: rgb(2, 1, 1);
+    cursor:pointer;
+    font-size: 20px;
+  }
+  .refresh {
+    position: absolute;
+    border-radius: 12px;
+    left: 900px;
+    top: 55px;
+    background-color: #f35252;
+    border: none;
+    color: white;
+    padding: 25px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    cursor:pointer;
+  }
+
+  .remove{
+    position: absolute;
+    left: 1300px;
+    border-radius: 12px;
+    border: none;
+    background-color: #f00404d3;
+    color: rgb(0, 0, 0);
+    cursor:pointer;
+    font-size: 20px;
+  }
+
+  .totalValue {
+  position: absolute;
+  left: 290px;
+  top: 90px;
+  font-size: 35px;
+  }
+
+
+  table {
+    position: absolute;
+    top: 290px;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+  }
+  
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+
+  .valueTextField{
+    position: absolute;
+    left: 38px;
+    top: 130px;
+  }
+  .showBudget{
+    position: absolute;
+    left: 1000px;
+    border-radius: 12px;
+    border: none;
+    background-color: hsla(310, 32%, 64%, 0.816);
+    color: rgb(0, 0, 0);
+    cursor:pointer;
+    font-size: 20px;
   }

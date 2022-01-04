@@ -9,14 +9,14 @@ import { HttpClientService, Password, User } from '../services/http-client.servi
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User(null, null, null, null, null, null, null, null);
+  user: User = new User(null, null, null, null, null, null, null, null, null);
   nickname = '';
   username = '';
   userlastname = '';
   passwordd = '';
   stringIfWrongLogIn = '';
-  loginPass: User = new User(null, null, null, null, null, null, null, null);
-  findUserObj: User = new User(null, null, null, null, null, null, null, null);
+  loginPass: User = new User(null, null, null, null, null, null, null, null, null);
+  findUserObj: User = new User(null, null, null, null, null, null, null, null, null);
   password: Password = new Password(0, '');
   constructor(
     private router: Router,
@@ -46,5 +46,13 @@ export class LoginComponent implements OnInit {
     }
   }
     );
+}
+registerUser(): void{
+    this.router.navigate(['RegisterUserComponent']);
+}
+fastRegister(): void{
+  this.httpClient.createFastTwojAccount().subscribe();
+}
+}
 
-  }}
+

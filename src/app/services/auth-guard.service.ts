@@ -1,15 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AuthGuardService implements CanActivate{
 
   constructor(private router: Router,
-              private authService: AuthenticationService) { }
+              private authService: AuthenticationService,
+              private httpClient: HttpClient) { }
 
 // tslint:disable-next-line: typedef
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -17,7 +18,7 @@ if (this.authService.isUserLoggedIn()) {
 return true;
 }
 
-this.router.navigate(['login']);
+this.router.navigate(['']);
 return false;
 
 }

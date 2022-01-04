@@ -1,9 +1,7 @@
-<div class="container">
+<td class="descriptionTextField">Group name : <input type="text" groupName="groupName" [(ngModel)]="groupName"></td>
+ <button (click)="createNewBudget()" class="createButton">Create new budget</button>
 
-<div>
-    Group name : <input type="text" groupName="groupName" [(ngModel)]="groupName">
-    <td><button (click)="createNewBudget()" class="btn btn-success">Create new budget</button></td>
-</div>
+    <button (click)="goBack() "class="back">Back</button>
 
 
-</div>
+

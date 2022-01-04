@@ -1,0 +1,64 @@
+<div class="chooseYear">
+ <select (change)="setStartYear($event.target.value)">
+   <option *ngFor="let y of years">{{y}}</option>
+</select>
+</div>
+
+<div class="chooseMonth">
+  <select (change)="setStartMonth($event.target.value)">
+    <option *ngFor="let m of months">{{m}}</option>
+  </select>
+</div>
+
+<div class="chooseDay">
+  <select (change)="setStartDay($event.target.value)">
+    <option *ngFor="let d of days">{{d}}</option>
+  </select>
+</div>
+
+<div class="chooseYearEnd">
+  <select (change)="setStartYearEnd($event.target.value)">
+      <option *ngFor="let ye of yearsEnd">{{ye}}</option>
+  </select>
+</div>
+    
+<div class="chooseMonthEnd">
+  <select (change)="setStartMonthEnd($event.target.value)">
+    <option *ngFor="let me of monthsEnd">{{me}}</option>
+  </select>
+</div>
+    
+<div class="chooseDayEnd">
+  <select (change)="setStartDayEnd($event.target.value)">
+     <option *ngFor="let de of daysEnd">{{de}}</option>
+  </select>
+</div>
+    
+   
+<div class="goalField">
+  <td>Budget goal : <input type="text" name=goalValue [(ngModel)]=goalValue></td>
+  <button (click)=saveSettings() class="saveButton"> Save</button>
+</div>
+
+<button (click)="back()" class="back">Back</button>
+
+<table class="table">
+  
+  <thead>
+    <tr>
+      <td><b>Nickname</b></td>
+     </tr>
+     
+    </thead>
+    <tbody>
+        <tr *ngFor="let mem of userAssignment.listOfMembers">
+           <td>{{mem.nickname}}</td>
+           <select (change)="setPermission($event.target.value)">
+            <option *ngFor="let p of permission">{{p}}</option>
+         </select>
+         <button (click)=confirmSetPermission(mem) class="confirmButton">Confirm permission</button>
+         <button (click)=removeUserFromBudget(mem) class="confirmButton"> Remove member</button>
+             </tr>
+             <td></td>
+         </tbody>
+        </table>

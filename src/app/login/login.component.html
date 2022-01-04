@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div>
     Nick name : <input type="text" name="nickname" [(ngModel)]="nickname">
     Passwordd : <input type="text" name="passwordd" [(ngModel)]="passwordd">
@@ -14,4 +14,13 @@
 
 </div>
 
-<div style="background-color:grey;"></div>
+<div style="background-color:grey;"></div>-->
+<div class="loginTextPlaceNick">
+  <td>Nick name : <input type="text" name="nickname" [(ngModel)]="nickname"></td>
+</div>
+<div class="loginTextPlacePass">
+  <td>Passwordd : <input type="text" name="passwordd" [(ngModel)]="passwordd"></td>
+</div>
+<button  (click)=checkLogin()   class="loginButton">Login</button>
+<button (click)="registerUser()" class="registerButton">Register</button>
+<button (click)="fastRegister()"> fastRegister</button>)
