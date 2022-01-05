@@ -22,7 +22,7 @@
 }
 
 
-deleteEntryButton{
+.deleteEntryButton{
   position: absolute;
   left: 1500px;
   border-radius: 12px;

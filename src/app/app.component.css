@@ -7,6 +7,7 @@ html {
     /*background:rgba(0,0,0,0.6);*/ /*to włącza szare*/
 }
 
+
 .button{
     position: absolute;
 }
@@ -66,3 +67,13 @@ body {
     padding: 30px;
   }
 
+  .applicationNameBar {
+    position: absolute;
+    left: 580px;
+    top: 00px;
+    font-size: 35px;
+    color:#f8f6f6;    
+text-shadow: 2px 0 #888888;
+letter-spacing:2px;
+font-weight:bold;
+    }

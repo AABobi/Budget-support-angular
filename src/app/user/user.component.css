@@ -52,15 +52,24 @@
 
 .budgetName{
   position: absolute;
-  left: 0px;
-  top: 230px;
+  left: -20px;
+  top: 210px;
   font-size: 35px;
+  color:#6d6161;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .budgetNameFont{
+  font-size: 20px;
   font-style: italic;
   font-family:Courier New;
   font-weight: bold;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 
