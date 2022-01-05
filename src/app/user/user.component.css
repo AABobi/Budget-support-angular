@@ -12,14 +12,16 @@
 
 .addDescription{
     position: absolute;
-    top: 180px;
-    left: 215px;
-    padding: 15px 20px;
+    top: 112px;
+    left: 567px;
+    font-size: 25px;
+    padding: 15px 30px;
     border-radius: 12px;
     border: none;
-    background-color: #c084b6d0;
+    background-color: #00000096;
     color: white;
     cursor:pointer;
+    font-weight:bold;
 }
 
 .addNewMemberButton{
@@ -88,38 +90,57 @@
 
 .budgetDate{
   position: absolute;
-  left: 650px;
-  top: 50px;
-  font-size: 33px;
+  left: -2px;
+  top: 45px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .budgetDateStart{
   position: absolute;
-  left: 650px;
-  top: 100px;
-  font-size: 33px;
+  left: 80px;
+  top: 45px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .budgetDateEnd{
   position: absolute;
-  left: 650px;
-  top: 150px;
-  font-size: 33px;
+  left: 80px;
+  top: 70px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 
 .budgetGoal{
   position: absolute;
   color: red;
-  left: 384px;
-  top: 50px;
-  font-size: 35px;
+  left: 0px;
+  top: 180px;
+  font-size: 25px;
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 .budgetGoalFalse{
   position: absolute;
-  left: 384px;
-  top: 50px;
-  font-size: 35px;
+  left: 0px;
+  top: 180px;
+  font-size: 25px;
+  color:#0d09ee;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .container {
@@ -141,11 +162,7 @@
     font-size: 33px;
   }
 
-.descriptionTextField{
-  position: absolute;
-  left: 0px;
-  top: 90px;
-}
+
 
 .deleteEntryButton{
   position: absolute;
@@ -162,9 +179,13 @@
 
   .expectedExpanses {
     position: absolute;
-  left: 210px;
+  left: 0px;
   top: 220px;
-  font-size: 35px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
   }
 
   .fastLoginButtonDoc{
@@ -184,7 +205,7 @@
     border-radius: 12px;
     border: none;
     background-color: #267cddd0;
-    color: rgb(2, 1, 1);
+    color: white;
     cursor:pointer;
     font-size: 20px;
   }
@@ -210,16 +231,20 @@
     border-radius: 12px;
     border: none;
     background-color: #f00404d3;
-    color: rgb(0, 0, 0);
+    color: white;
     cursor:pointer;
     font-size: 20px;
   }
 
   .totalValue {
   position: absolute;
-  left: 290px;
-  top: 90px;
-  font-size: 35px;
+  left: -2px;
+  top: 140px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
   }
 
 
@@ -254,8 +279,8 @@
 
   .valueTextField{
     position: absolute;
-    left: 38px;
-    top: 130px;
+    left: 350px;
+    top: 128px;
   }
   .showBudget{
     position: absolute;
@@ -263,7 +288,34 @@
     border-radius: 12px;
     border: none;
     background-color: hsla(310, 32%, 64%, 0.816);
-    color: rgb(0, 0, 0);
+    color: white;
     cursor:pointer;
     font-size: 20px;
   } 
+
+  .value {
+    position: absolute;
+  left: 350px;
+  top: 95px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
+  }
+  .description {
+    position: absolute;
+  left: 350px;
+  top: 40px;
+  font-size: 25px;
+  color:#442121;    
+  text-shadow: 2px 0 #bdbbbb;
+  letter-spacing:2px;
+  font-weight:bold;
+  }
+
+  .descriptionTextField{
+    position: absolute;
+    left: 350px;
+    top: 73px;
+  }

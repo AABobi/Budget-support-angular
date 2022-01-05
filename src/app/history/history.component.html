@@ -1,15 +1,15 @@
 
 <div *ngIf = "!userVision">
-   <button (click)="backToTheHistory()" class="back"> Back</button>
+   <button (click)="backToTheHistory()" class="back"> BACK</button>
    
  <table class="table">
     
     <thead>
       <tr>
-        <td><b>Description</b></td>
-        <td><b>Value</b></td>
-        <td><b>Who</b></td>
-        <td><b>Date</b></td>
+        <td><b>DESCRIPTION</b></td>
+        <td><b>VALUE</b></td>
+        <td><b>PERSON</b></td>
+        <td><b>DATE</b></td>
        </tr>
        
       </thead>
@@ -19,7 +19,7 @@
                <td>{{aa.value}}</td>
                <td>{{aa.userName}}</td>
                <td>{{aa.date}}</td>
-               <button (click)=deleteEntry(aa) class="deleteEntryButton"> Delete entry</button>
+               <button (click)=deleteEntry(aa) class="deleteEntryButton">DELETE ENTRY</button>
                </tr>
                <td></td>
            </tbody>
@@ -38,8 +38,8 @@
           <tbody>
               <tr *ngFor="let bud of listOfBudgets">
                    <td>{{bud.budgetName}}</td>
-                    <td><button (click)="showBudget(bud)" class="showBudget">Show budget</button></td>
-                    <td><button (click)="remove(bud)" class="remove">Remove</button></td>
+                    <td><button (click)="showBudget(bud)" class="showBudget">SHOW BUDGET</button></td>
+                    <td><button (click)="remove(bud)" class="remove">REMOVE</button></td>
                    </tr>
                    <td></td>
                </tbody>

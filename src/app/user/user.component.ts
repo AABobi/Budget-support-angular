@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   friendNick: string;
   // To set vision.
    userVision: boolean;
-
+   userVision2 = false;
    budgetVision: boolean;
 
   budgetWithPermissionToRemove: Array<UserAssignmentToGroup>;

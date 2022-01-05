@@ -1,24 +1,24 @@
 <div *ngIf="vision">
 <div class="loginTextPlaceNick">
-    <td>Nickname : <input type="text" name="nickname" [(ngModel)]="nickname"></td>
+    <td>NICK : <input type="text" name="nickname" [(ngModel)]="nickname"></td>
   </div>
   <div class="loginTextPlacePass">
-    <td>Password : <input type="text" name="passwordString" [(ngModel)]="passwordString"></td>
+    <td>PASSWORD : <input type="text" name="passwordString" [(ngModel)]="passwordString"></td>
   </div>
   <div class="registerTextFieldEmail">
-    <td>Email : <input type="text" name="email" [(ngModel)]="email"></td>
+    <td>EMAIL : <input type="text" name="email" [(ngModel)]="email"></td>
   </div>
   <div class="registerTextFieldName">
-    <td>Name : <input type="text" name="name" [(ngModel)]="name"></td>
+    <td>NAME : <input type="text" name="name" [(ngModel)]="name"></td>
   </div>
   <div class="registerTextFieldLastname">
-    <td>Lastname : <input type="text" name="lastname" [(ngModel)]="lastname"></td>
+    <td>LASTNAME : <input type="text" name="lastname" [(ngModel)]="lastname"></td>
   </div>
-  <button (click)="registerUser()" class="registerButton">Register</button>
-  <button (click)=goToLogin() class="back">Back</button>
+  <button (click)="registerUser()" class="registerButton">REGISTER</button>
+  <button (click)=goToLogin() class="back">BACK</button>
 </div>
 
 <div *ngIf="!vision">
-<button (click)="confirm()" class="confirmButton">Active account</button>
-<button (click)="goToLogin()" class="backButton">Back</button>
+<button (click)="confirm()" class="confirmButton">ACTIVATE ACCOUNT</button>
+<button (click)="goToLogin()" class="backButton">BACK</button>
 </div>

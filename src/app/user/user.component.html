@@ -5,16 +5,16 @@
   
     <!--<button (click)="createBudget()" class="createBugdet">Create new budget</button>-->
   <tr>
-    <th class="budgetName">Budget name</th>
+    <th class="budgetName">BUDGET NAME</th>
    </tr>
   <table class="table">
        <thead>
        </thead>
        <tbody *ngFor="let budg of budgetWithPermissionToRemove ">
         <td class="budgetNameFont">{{budg.budgetName}}</td>
-        <td><button (click)=changeVision(budg) class="showBudget">Show budget</button></td>
-        <td><button (click)=deleteBudget(budg) class="remove">Remove</button></td>
-        <td><button (click)=leaveBudget(budg) class="leave">Leave</button></td>
+        <td><button (click)=changeVision(budg) class="showBudget">SHOW BUDGET</button></td>
+        <td><button (click)=deleteBudget(budg) class="remove">REMOVE</button></td>
+        <td><button (click)=leaveBudget(budg) class="leave">LEAVE</button></td>
       </tbody>
                  <!--<ng-conteiner *ngFor="let vision of booleanArray">
                 </ng-conteiner>-->
@@ -34,8 +34,8 @@
                  
              <tbody *ngFor="let budg2 of budgetWithoutPermissionToRemove ">
                <td class="budgetNameFont">{{budg2.budgetName}}</td>
-               <td><button (click)=changeVision(budg2) class="showBudget">Show budget</button></td>
-               <td><button (click)=leaveBudget(budg2) class="leave">Leave</button></td>
+               <td><button (click)=changeVision(budg2) class="showBudget">SHOW BUDGET</button></td>
+               <td><button (click)=leaveBudget(budg2) class="leave">LEAVE</button></td>
               </tbody>
       </table>
       
@@ -43,21 +43,24 @@
 </div>
 
 <div *ngIf = "!userVision">
-  <button (click)=changeVision(budg) class="back">Back</button>
-  <button (click)="addNewMemberToTheBudget()" class="addNewMemberButton">Add friend</button>
-  <button (click)="addExpectedExpanses()" class="addExpectedExpanses">Add expected expanses</button>
-  <button (click)=addDescriptionToTheBudget() class="addDescription"> Add</button>
-  <button (click)="budgetSettings()" class="budgetSettingCss">Budget setting</button>
+  <button (click)=changeVision(budg) class="back">BACK</button>
+  <button (click)="addNewMemberToTheBudget()" class="addNewMemberButton">ADD MEMBER
+  </button>
+  <button (click)="addExpectedExpanses()" class="addExpectedExpanses">ADD EXPECTED EXPENSES</button>
+  <button (click)=addDescriptionToTheBudget() class="addDescription"> ADD</button>
+  <button (click)="budgetSettings()" class="budgetSettingCss">BUDGET SETTINGS</button>
   
-  <td class="descriptionTextField">Description : <input type="text" name=description [(ngModel)]=description></td>
-  <td class="valueTextField">Value : <input type="text" name=value [(ngModel)]=value></td>
+  <td class="descriptionTextField"> <input type="text" name=description [(ngModel)]=description></td>
+  <td class="valueTextField"><input type="text" name=value [(ngModel)]=value></td>
   <td class="addNewMemberTextField">nickname : <input type="text" name=friendNick [(ngModel)]=friendNick></td>
   
+  <td class="value">VALUE</td>
+  <td class="description">DESCRIPTION</td>
   <td class="budgetDate">Term:</td>
   <td class="budgetDateStart">{{inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetStartDate}}</td>
   <td class="budgetDateEnd">{{inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetEndDate}}</td>
-  <div *ngIf = "!fontColor"><td class="budgetGoalFalse">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal}}</td></div>
-  <div *ngIf = "fontColor"><td class="budgetGoal" style="color:red">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal}}</td></div>
+  <div *ngIf = "!fontColor"><td class="budgetGoalFalse">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal - TotalValue}}</td></div>
+  <div *ngIf = "fontColor"><td class="budgetGoal" style="color:red">Limit:   {{inviteNewFriendToTheBudgetAndDisplayDescriptions.goal - TotalValue}}</td></div>
   <td class="totalValue">Total value:  {{TotalValue}}</td>
   <td class="expectedExpanses">Expected expenses:  {{expectedExpenses}}</td>
  
