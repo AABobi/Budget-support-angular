@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Budget, History, HttpClientService, User, UserAssignmentToGroup } from '../services/http-client.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class HistoryComponent implements OnInit {
   userVision = null;
   listOfBudgets = null;
   listOfDescription: Budget[];
-  constructor(public httpClient: HttpClientService) { }
+  constructor(public httpClient: HttpClientService,
+              public router: Router) { }
 
   ngOnInit(): void {
     if(this.userVision == null){
@@ -21,8 +23,8 @@ export class HistoryComponent implements OnInit {
       this.listOfBudgets = userReq.history;
     });
   }
-  refresh(): void{
-    this.ngOnInit();
+  backToTheHistory(): void{
+    this.userVision = true;
   }
   deleteEntry(budget: Budget){
     this.httpClient.deleteEntryHistory(budget, budget.id).subscribe(reqHi => {

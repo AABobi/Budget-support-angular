@@ -60,3 +60,16 @@ table {
   th, td {
     padding: 20px;
   }
+
+
+
+  .back{
+    position: absolute;
+      left: 1800px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: none;
+      background-color: hsla(310, 32%, 64%, 0.816);
+      color: white;
+      cursor:pointer;
+  }

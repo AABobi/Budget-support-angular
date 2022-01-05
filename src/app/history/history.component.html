@@ -1,6 +1,7 @@
 
 <div *ngIf = "!userVision">
-   <button (click)="testRefrest()"> refresh</button>
+   <button (click)="backToTheHistory()" class="back"> Back</button>
+   
  <table class="table">
     
     <thead>
@@ -29,7 +30,6 @@
 
   <div *ngIf = "userVision">
    <!--<button (click)="refresh()">aa</button>-->
-
     <table class="table">
     
         <thead>
