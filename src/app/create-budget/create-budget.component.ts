@@ -26,6 +26,7 @@ export class CreateBudgetComponent implements OnInit {
     arrayWithInformationAboutNewBudget.push(this.groupName);
     arrayWithInformationAboutNewBudget.push(sessionStorage.getItem('nickname'));
     this.httpClient.createBudget(arrayWithInformationAboutNewBudget).subscribe();
+    sessionStorage.setItem('refreshWindow', 'true');
     this.router.navigate(['UserComponent']);
  }
 

@@ -52,6 +52,7 @@ export class UserComponent implements OnInit {
   usersArray: User[] = [];
 
   ngOnInit(): void {
+    console.log('ngOnInitTest');
     // When we use back button and want go to budget details not budget list
     if (sessionStorage.getItem('visionWhenGoBack') === 'false'){
       this.userVision = false;
@@ -75,6 +76,7 @@ export class UserComponent implements OnInit {
        }
       });
       }
+
     if (this.userVision == null){
     this.userVision = true;
     }// Displayed budgets.
@@ -88,6 +90,11 @@ export class UserComponent implements OnInit {
       this.httpClient.setRemoveButtonPermission(this.listOfBudgets, sessionStorage.getItem('nickname')).subscribe(req => {
         this.budgetWithPermissionToRemove = req[0];
         this.budgetWithoutPermissionToRemove = req[1];
+        if(sessionStorage.getItem('refreshWindow') === 'true'){
+          sessionStorage.setItem('refreshWindow', 'false');
+         this.refreshList();
+        }
+    
   });
 });
    });
@@ -102,7 +109,7 @@ export class UserComponent implements OnInit {
   // This method gets obj from html, saves it for second method
   addNewMemberToTheBudget(): void{
     // New user for "findUser method, to send only nickname"
-      const userToAdd: User = new User(null, this.friendNick, null, null, null, null, null, null, null);
+      //const userToAdd: User = new User(null, this.friendNick, null, null, null, null, null, null, null);
       // To this object method save returned permission from "checkPermission" method
       let objectToCheckPermission: Permission = new Permission(null, null, null);
       // Here method checks if user whick what to add new member have permission to do that
@@ -110,7 +117,7 @@ export class UserComponent implements OnInit {
         objectToCheckPermission = data;
         if (objectToCheckPermission.typeOfPermission < 3){
           // If permission is good method will find user which we want to add,
-          this.httpClient.findUser(userToAdd).subscribe(founduser => {
+          this.httpClient.findUser(this.friendNick).subscribe(founduser => {
             // If user haven't any group in his list we create new list and set it
             if (founduser.userAssignmentToGroup.length === 0){
             const newArray: UserAssignmentToGroup[] = [];
@@ -134,11 +141,11 @@ export class UserComponent implements OnInit {
   addDescriptionToTheBudget(): void{
       // tslint:disable-next-line:prefer-const
       // To get findUser data.
-      let user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
+      //let user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
       // To get value from forEach.
       let userAssign: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, null, null, null, null, null, null, null);
-      this.httpClient.findUser(user).subscribe(data => {
-        user = data;
+      this.httpClient.findUser(sessionStorage.getItem('nickname')).subscribe(data => {
+        let user = data;
         user.userAssignmentToGroup.forEach(function(obj){
           if (obj.uniqueGroupCode === sessionStorage.getItem('uniqueCode')){
             userAssign = obj;
@@ -229,14 +236,14 @@ budgetSettings(): void{
 
       // usun this.budgetArray = budgetArrayInsideThisMethod;}
 
-      let user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
+      //let user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
       // let budgetArray3: Budget[] = [];
 
       // tslint:disable-next-line:max-line-length
       // I don't know how to give value to inviteNewFriendToTheBudgetAndDisplayDescriptions in IF STATEMENT so create this variable to get value.
       let uAsGobjForIfStatement: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, null, null, null, null, null, null, null);
-      this.httpClient.findUser(user).subscribe(data => {
-        user = data;
+      this.httpClient.findUser(sessionStorage.getItem('nickname')).subscribe(data => {
+        let user = data;
         // Pobieramy użytkownika z bazy danych i znajdujemy w nim uAtG, który chcemy wyświetlić i przypisujemy go do budgetArray2.
         user.userAssignmentToGroup.forEach(function(obj){
             if (obj.uniqueGroupCode === sessionStorage.getItem('uniqueCode')){
@@ -257,6 +264,8 @@ budgetSettings(): void{
       this.TotalValue = sum1;
       this.userVision = false;
    }else{
+    sessionStorage.setItem('refreshWindow', 'true');
+    this.ngOnInit();
     this.userVision = true;
   }
   }
@@ -322,8 +331,7 @@ budgetSettings(): void{
      // Method get object uasg from button html and them create array only with this object.
      // After that create object user with ONLY user nickname and LIST with object uasg. In the end send user to leaveBudget method.
   leaveBudget(uasg: UserAssignmentToGroup): void{
-      const user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
-      this.httpClient.findUser(user).subscribe(foundUser => {
+      this.httpClient.findUser(sessionStorage.getItem('nickname')).subscribe(foundUser => {
         this.httpClient.leaveBudget(foundUser, uasg.uniqueGroupCode, 'checkIfNotLastWithPermOne').subscribe(refresh => {
           this.ngOnInit();
           window.location.reload();

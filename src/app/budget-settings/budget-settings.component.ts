@@ -62,9 +62,9 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
     // tslint:disable-next-line:triple-equals
     if (this.permissionChoosen == 1 || this.permissionChoosen == 2 || this.permissionChoosen == 3){
       const answer = window.confirm('Confirm');
-      const user: User = new User(null, nicknameClass.nickname, null, null, null, null, null, null, null);
+      //const user: User = new User(null, nicknameClass.nickname, null, null, null, null, null, null, null);
       if (answer){
-      this.httpClient.findUser(user).subscribe( foundUser => {
+      this.httpClient.findUser(nicknameClass.nickname).subscribe( foundUser => {
           this.httpClient.setPermission(foundUser, this.permissionChoosen, sessionStorage.getItem('uniqueCode')).subscribe(message => {
             alert(message);
           });
@@ -76,14 +76,14 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
      }
 
      removeUserFromBudget(nicknameClass: UserInBudget): void{
-      const findUserWithNick: User = new User(null, nicknameClass.nickname , null, null, null, null, null, null, null);
+      //const findUserWithNick: User = new User(null, nicknameClass.nickname , null, null, null, null, null, null, null);
       this.httpClient.checkPermission(sessionStorage.getItem('uniqueCode'), nicknameClass.nickname).subscribe( perm => {
         console.log(perm.typeOfPermission);
         // tslint:disable-next-line:triple-equals
         if (perm.typeOfPermission == 1){
           alert('Cannot remove this user');
         }else{
-          this.httpClient.findUser(findUserWithNick).subscribe(foudnUser => {
+          this.httpClient.findUser(nicknameClass.nickname).subscribe(foudnUser => {
             this.httpClient.leaveBudget(foudnUser, sessionStorage.getItem('uniqueCode'), 'doNot').subscribe(refresh => {
               this.ngOnInit();
               window.location.reload();
@@ -140,7 +140,8 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
 
 
   saveSettings(): void{
-   // tslint:disable-next-line:no-construct
+   if(this.year != null && this.month != null && this.day != null && this.yearEnd != null && this.monthEnd != null && this.dayEnd != null){
+    // tslint:disable-next-line:no-construct
    const temporaryYearValue = new Number(this.year);
    // tslint:disable-next-line:no-construct
    const temporaryDayValue = new Number(this.day);
@@ -205,5 +206,8 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
    this.httpClient.saveBudgetSettings(userAssignemtToGroup).subscribe(data => {
     this.back();
   });
+  }else{
+    alert('Set all date parameters');
   }
+}
 }

@@ -1,6 +1,6 @@
 
 <div *ngIf = "!userVision">
-   
+   <button (click)="testRefrest()"> refresh</button>
  <table class="table">
     
     <thead>
@@ -13,12 +13,12 @@
        
       </thead>
       <tbody>
-          <tr *ngFor="let bud of inviteNewFriendToTheBudgetAndDisplayDescriptions.budgetList">
-               <td>{{bud.description}}</td>
-               <td>{{bud.value}}</td>
-               <td>{{bud.userName}}</td>
-               <td>{{bud.date}}</td>
-               <button (click)=deleteEntry(bud) class="deleteEntryButton"> Delete entry</button>
+          <tr *ngFor="let aa of listOfDescription">
+               <td>{{aa.description}}</td>
+               <td>{{aa.value}}</td>
+               <td>{{aa.userName}}</td>
+               <td>{{aa.date}}</td>
+               <button (click)=deleteEntry(aa) class="deleteEntryButton"> Delete entry</button>
                </tr>
                <td></td>
            </tbody>
@@ -28,20 +28,18 @@
   </div>
 
   <div *ngIf = "userVision">
-   <button (click)="refresh()">aa</button>
+   <!--<button (click)="refresh()">aa</button>-->
 
     <table class="table">
     
         <thead>
-          <tr>
-            <td><b>Budget name</b></td>
-           </tr>
-           
-          </thead>
+      
+           </thead>
           <tbody>
               <tr *ngFor="let bud of listOfBudgets">
                    <td>{{bud.budgetName}}</td>
-            
+                    <td><button (click)="showBudget(bud)" class="showBudget">Show budget</button></td>
+                    <td><button (click)="remove(bud)" class="remove">Remove</button></td>
                    </tr>
                    <td></td>
                </tbody>

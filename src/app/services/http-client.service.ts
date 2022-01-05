@@ -243,9 +243,19 @@ public deleteEntry(budget, budgetId){
   return this.httpClient.post<UserAssignmentToGroup>('http://localhost:8080//deleteEntry/' + budgetId, budget);
 }
 
+// tslint:disable-next-line:typedef
+public deleteEntryHistory(budget, budgetId){
+  return this.httpClient.post<UserAssignmentToGroup>('http://localhost:8080//deleteEntryHistory/' + budgetId, budget);
+}
+
 public deleteExpectedEntry(id, code){
   return this.httpClient.delete<UserAssignmentToGroup>('http://localhost:8080//deleteExpectedEntry' + '/' + id + '&' + code);
 }
+
+public deleteHistoryEntry(historyObj, nickname){
+  return this.httpClient.post<Array<History>>('http://localhost:8080//deleteHistoryEntry/' + nickname, historyObj);
+}
+
   // tslint:disable-next-line:typedef
 public firstConnection() {
   return this.httpClient.get<User>('http://localhost:8080//firstConn');
@@ -253,7 +263,7 @@ public firstConnection() {
 
   // tslint:disable-next-line:typedef
 public findUser(user){
-  return this.httpClient.post<User>('http://localhost:8080//findUser', user);
+  return this.httpClient.get<User>('http://localhost:8080//findUser/'+ user);
 }
 
 public findAll(){
@@ -285,6 +295,7 @@ public leaveBudget(user, code, toCheckIfUserWhichLeaveIsNotLastWithAdminPermissi
 public moveGroupToTheHistory(group): Observable<User>{
   return this.httpClient.post<User>('http://localhost:8080/moveGroupToTheHistory', group);
 }
+
 public saveBudgetSettings(uatg){
   return this.httpClient.post<null>('http://localhost:8080//saveBudgetSettings', uatg);
 }
