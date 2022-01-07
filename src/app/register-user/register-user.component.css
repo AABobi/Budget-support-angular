@@ -34,7 +34,7 @@
 
 .loginTextPlaceNick{
     position: absolute;
-    left: 695px;
+    left: 746px;
     top: 255px;
   }
   
@@ -47,19 +47,19 @@
 
   .registerTextFieldEmail{
     position: absolute;
-    left: 721px;
+    left: 737px;
     top: 345px;
   }
 
   .registerTextFieldName{
     position: absolute;
-    left: 721px;
+    left: 737px;
     top: 390px;
   }
 
   .registerTextFieldLastname{
     position: absolute;
-    left: 696px;
+    left: 702px;
     top: 435px;
   }
 
