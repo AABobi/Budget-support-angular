@@ -1,9 +1,16 @@
-<td class="descriptionTextField">Description : <input type="text" name=description [(ngModel)]=description></td>
-  <td class="valueTextField">Value : <input type="text" name=value [(ngModel)]=value></td>
+<td class="descriptionTextField"><input type="text" name=description [(ngModel)]=description></td>
+  <td class="valueTextField"><input type="text" name=value [(ngModel)]=value></td>
+  <td class="description">DESCRIPTION</td>
+  <td class="value">VALUE</td>
+  <td class="budgetDate">Term:</td>
+  <td class="budgetDateStart">{{userAssignmentToGroup.budgetStartDate}}</td>
+  <td class="budgetDateEnd">{{userAssignmentToGroup.budgetEndDate}}</td>
+
+
   <button class="addExpectedExpenses" (click)=addExpectedExpanses()> Add</button>
   <button (click)="back()" class="back">Back</button>
       
-            <button (click)="refreshList()" class="refresh">Refresh</button>
+           <!-- <button (click)="refreshList()" class="refresh">Refresh</button>-->
             <div class="chooseYear">
               <select (change)="setStartYear($event.target.value)">
                 <option *ngFor="let y of years">{{y}}</option>
@@ -40,8 +47,8 @@
                                <td>{{bud.value}}</td>
                                <td>{{bud.userName}}</td>
                                <td>{{bud.date}}</td>
-                               <button (click)=deleteEntry(bud) class="delete"> Delete entry</button>
-                               <button (click)=addToDiscriptions(bud) class="done"> Done</button>
+                               <td><button (click)=deleteEntry(bud) class="delete"> Delete entry</button></td>
+                               <td><button (click)=addToDiscriptions(bud) class="done"> Done</button></td>
                                </tr>
                                <td></td>
                            </tbody>

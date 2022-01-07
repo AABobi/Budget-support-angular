@@ -11,10 +11,10 @@
      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/LoginComponent" class="nav-link">Login</a></li>
      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/LogoutComponent" class="nav-link">Logout</a></li>
      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/UserComponent" class="nav-link">User</a></li>
-     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/AdminComponent" class="nav-link">Admin</a></li>
+      <!--<li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/AdminComponent" class="nav-link">Admin</a></li>-->
      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/CreateBudgetComponent" class="nav-link">Create new budget</a></li>
-     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/HistoryComponent" class="nav-link">History</a></li>
-     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/RegisterUserComponent" class="nav-link">RegisterUserComponent</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/HistoryComponent" class="nav-link">History</a></li>
+     <!--<li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/RegisterUserComponent" class="nav-link">RegisterUserComponent</a></li>-->
     
    </ul>
    

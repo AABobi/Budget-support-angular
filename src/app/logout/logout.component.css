@@ -1,11 +1,23 @@
 .logoutButton{
     position: absolute;
     border-radius: 12px;
-    left: 500px;
-    top: 5px;
+    left: 650px;
+    top: 100px;
     border: none;
-    background-color: #c084b6d0;
+    background-color: #00000096;
     color: white;
-    padding: 35px 32px;
+    padding: 45px 42px;
+    cursor:pointer;
+}
+
+.noLogout{
+    position: absolute;
+    border-radius: 12px;
+    left: 950px;
+    top: 100px;
+    border: none;
+    background-color: #00000096;
+    color: white;
+    padding: 45px 42px;
     cursor:pointer;
 }

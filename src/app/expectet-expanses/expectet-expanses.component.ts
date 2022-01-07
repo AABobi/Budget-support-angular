@@ -29,7 +29,7 @@ months: string[] = [null, '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11
   constructor(public httpClient: HttpClientService,
               private router: Router) { }
 
-  
+
   ngOnInit(): void {
     console.log(sessionStorage.getItem('uniqueCode'));
     this.httpClient.findBudget(sessionStorage.getItem('uniqueCode')).subscribe(data => {

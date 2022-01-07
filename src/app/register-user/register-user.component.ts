@@ -48,11 +48,39 @@ export class RegisterUserComponent implements OnInit {
         if (this.email === null || this.name === null || this.lastname === null || this.nickname === null || this.passwordString === null){
           alert('Fill in all fields');
         }else{
-          this.password.password = this.passwordString;
-          const user: User = new User(null, this.nickname, this.name, this.lastname, this.email, this.password, null, null, false);
-          this.httpClient.createUser(user).subscribe(data => {
-            alert(data[0]);
-          });
+          switch (this.checkEmail(this.email)){
+            case true: {
+              switch (this.passwordString.split('').length < 8){
+            case true: {
+              alert('Password require minimum 8 characters ');
+              break;
+            }
+            case false: {
+              switch (this.nickname.split('').length < 4){
+                case true: {
+                  alert('Nickname require minimum 4 characters');
+                  break;
+                }
+                case false: {
+                  this.createUser();
+                  break;
+                }
+              }
+              break;
+            }
+          }
+
+              break;
+            }
+            case false: {
+              alert('Please enter a valid email');
+              break;
+            }
+          }
+
+          
+          
+
         }
         break;
       }
@@ -61,6 +89,28 @@ export class RegisterUserComponent implements OnInit {
         break;
       }
     }
-  });
+});
   }
+
+  checkEmail(email: string): boolean{
+   const emailCharArray = email.split('');
+   let lookingForAtInEmail = false;
+   emailCharArray.forEach(function(obj){
+     if (obj === '@'){
+       lookingForAtInEmail = true;
+     }
+   });
+   console.log(lookingForAtInEmail);
+   return lookingForAtInEmail;
+  }
+
+  createUser(): void{
+    this.password.password = this.passwordString;
+    const user: User = new User(null, this.nickname, this.name, this.lastname, this.email, this.password, null, null, false);
+    this.httpClient.createUser(user).subscribe(req => {
+  alert(req[0]);
+});
+  }
+
+
 }

@@ -52,7 +52,6 @@ export class UserComponent implements OnInit {
   usersArray: User[] = [];
 
   ngOnInit(): void {
-    console.log('ngOnInitTest');
     // When we use back button and want go to budget details not budget list
     if (sessionStorage.getItem('visionWhenGoBack') === 'false'){
       this.userVision = false;
@@ -84,17 +83,26 @@ export class UserComponent implements OnInit {
     const user: User = new User(null, sessionStorage.getItem('nickname'), null, null, null, null, null, null, null);
     // Finds budgets belongs to user.
     this.httpClient.findAllBudgetsOfUser(user).subscribe(data => {
-    this.httpClient.moveGroupToTheHistory(data).subscribe(userChecked => {
+
+      this.httpClient.moveGroupToTheHistory(data).subscribe(userChecked => {
       this.listOfBudgets = userChecked.userAssignmentToGroup;
       this.userForDisplayBudgets = userChecked;
+      /*if (userChecked.userAssignmentToGroup.length > 0){
+         // tslint:disable-next-line:prefer-for-of
+         for (let i = 0; i < userChecked.userAssignmentToGroup.length; i++){
+           if (userChecked.history[i].uniqueGroupCode === sessionStorage.getItem('uniqueCode')){
+             this.userVision = true;
+           }
+         }
+      }*/
+
       this.httpClient.setRemoveButtonPermission(this.listOfBudgets, sessionStorage.getItem('nickname')).subscribe(req => {
         this.budgetWithPermissionToRemove = req[0];
         this.budgetWithoutPermissionToRemove = req[1];
-        if(sessionStorage.getItem('refreshWindow') === 'true'){
+        if (sessionStorage.getItem('refreshWindow') === 'true'){
           sessionStorage.setItem('refreshWindow', 'false');
-         this.refreshList();
+          this.refreshList();
         }
-    
   });
 });
    });
@@ -192,12 +200,14 @@ budgetSettings(): void{
     if (data.typeOfPermission > 1) {
       alert('You don not have permission');
     }else{
+      this.userVision = null;
       this.router.navigate(['BudgetSettingsComponent']);
     }
   });
  }
 // This method navigate to create method in differnt component.
   createBudget(): void{
+    this.userVision = true;
     this.router.navigate(['CreateBudgetComponent']);
   }
 // This mathod changes vision. Home page in this component is list of budgets(userAssignemtToGroup objects)

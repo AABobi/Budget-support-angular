@@ -10,6 +10,7 @@ import { HttpClientService, User, UserAssignmentToGroup, UserInBudget } from '..
 })
 export class BudgetSettingsComponent implements OnInit {
 
+vision: boolean;
 
 year: number;
 month: string;
@@ -34,6 +35,7 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
               public loginService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.vision = true;
     // tslint:disable-next-line:max-line-length
     this.httpClient.findBudgetForListOfMembers(sessionStorage.getItem('uniqueCode'), sessionStorage.getItem('nickname')).subscribe(userAssignment => {
     this.userAssignment = userAssignment;
@@ -48,9 +50,14 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
   }
 
   back(): void{
+    if (this.vision){
     sessionStorage.setItem('visionWhenGoBack', 'false');
     sessionStorage.setItem('doNgOnInit', 'yes');
     this.router.navigate(['UserComponent']);
+    }else{
+      sessionStorage.setItem('doNgOnInit', 'yes');
+      this.router.navigate(['UserComponent']);
+    }
   }
 
 
@@ -204,6 +211,7 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
    const userAssignemtToGroup: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, null, null, sessionStorage.getItem('uniqueCode'), startDate, startDateEnd, this.goalValue, null);
 
    this.httpClient.saveBudgetSettings(userAssignemtToGroup).subscribe(data => {
+    this.vision = false;
     this.back();
   });
   }else{
