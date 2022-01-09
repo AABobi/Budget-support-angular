@@ -18,40 +18,40 @@
 }
 .chooseDay{
     position: absolute;
-    left: 500px;
+    left:449px;
     top: 180px;
   }
 
 
   .chooseMonth{
     position: absolute;
-    left: 300px;
+    left: 349px;
     top: 180px;
   }
 
   .chooseYear{
     position: absolute;
-    left: 100px;
+    left: 249px;
     top: 180px;
   }
 
   
   .chooseDayEnd{
     position: absolute;
-    left: 500px;
+    left: 449px;
     top: 250px;
   }
 
 
   .chooseMonthEnd{
     position: absolute;
-    left: 300px;
+    left: 349px;
     top: 250px;
   }
 
   .chooseYearEnd{
     position: absolute;
-    left: 100px;
+    left: 249px;
     top: 250px;
   }
 
