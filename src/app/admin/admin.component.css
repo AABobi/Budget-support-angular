@@ -1,0 +1,17 @@
+.confirmButton{
+    border-radius: 12px;
+    border: none;
+    background-color: #00000096;
+    color: white;
+    cursor:pointer;
+}
+  table {
+    position: absolute;
+    top: 290px;
+    table-layout: fixed;
+    width: 30%;
+    border-collapse: collapse;
+    border: 3px solid rgb(31, 24, 31);
+  }
+  
+  

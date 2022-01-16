@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
              window.location.reload();
     }else{
              sessionStorage.setItem('nickname', this.findUserObj.nickname);
+             sessionStorage.setItem('role', data.role);
              this.router.navigate(['UserComponent']);
              // window.location.reload();
     }

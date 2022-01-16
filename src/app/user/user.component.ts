@@ -342,7 +342,7 @@ budgetSettings(): void{
      // After that create object user with ONLY user nickname and LIST with object uasg. In the end send user to leaveBudget method.
   leaveBudget(uasg: UserAssignmentToGroup): void{
       this.httpClient.findUser(sessionStorage.getItem('nickname')).subscribe(foundUser => {
-        this.httpClient.leaveBudget(foundUser, uasg.uniqueGroupCode, 'checkIfNotLastWithPermOne').subscribe(refresh => {
+        this.httpClient.leaveBudget(foundUser, uasg.uniqueGroupCode).subscribe(refresh => {
           this.ngOnInit();
           window.location.reload();
         });

@@ -91,7 +91,7 @@ userAssignment: UserAssignmentToGroup = new UserAssignmentToGroup(null, null, nu
           alert('Cannot remove this user');
         }else{
           this.httpClient.findUser(nicknameClass.nickname).subscribe(foudnUser => {
-            this.httpClient.leaveBudget(foudnUser, sessionStorage.getItem('uniqueCode'), 'doNot').subscribe(refresh => {
+            this.httpClient.leaveBudget(foudnUser, sessionStorage.getItem('uniqueCode')).subscribe(refresh => {
               this.ngOnInit();
               window.location.reload();
             });

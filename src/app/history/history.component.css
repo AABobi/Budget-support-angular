@@ -3,7 +3,7 @@
   left: 1300px;
   border-radius: 12px;
   border: none;
-  background-color: hsla(310, 32%, 64%, 0.816);
+  background-color: #00000096;
   color: rgb(0, 0, 0);
   cursor:pointer;
   font-size: 20px;
@@ -38,7 +38,7 @@ table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 3px solid purple;
+    border: 3px solid rgb(31, 24, 31);
   }
 
   thead th:nth-child(1) {

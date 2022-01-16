@@ -1,0 +1,17 @@
+<table class="table">
+  
+    <thead>
+      <tr>
+        <td><b>NICKNAME</b></td>
+       </tr>
+       
+      </thead>
+      <tbody>
+          <tr *ngFor="let mem of arrayOfUsers">
+             <td>{{mem.nickname}}</td>
+          
+           <button (click)=removeUserFromBudget(mem) class="confirmButton">REMOVE MEMBER</button>
+               </tr>
+               <td></td>
+           </tbody>
+          </table>

@@ -16,6 +16,7 @@ export class User{
  public history: Array<History>;
  public permission: Array<Permission>;
  public confirm: boolean;
+ public role: string;
 
  constructor(id: number, nickname: string, name: string, lastname: string, email: string,
              password: Password, userAssinmentToGroup: Array<UserAssignmentToGroup>, permission: Array<Permission>, confirm: boolean){
@@ -287,9 +288,9 @@ public findBudgetForListOfMembers(code, nickname): Observable<UserAssignmentToGr
 }
 
 // tslint:disable-next-line:typedef
-public leaveBudget(user, code, toCheckIfUserWhichLeaveIsNotLastWithAdminPermission){
+public leaveBudget(user, code){
   // tslint:disable-next-line:max-line-length
-  return this.httpClient.post<null>('http://localhost:8080//leaveTheGroup/' + code + '&' + toCheckIfUserWhichLeaveIsNotLastWithAdminPermission, user);
+  return this.httpClient.post<null>('http://localhost:8080//leaveTheGroup/' + code , user);
 }
 
 public moveGroupToTheHistory(group): Observable<User>{

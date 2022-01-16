@@ -13,7 +13,8 @@ export class AuthenticationService implements OnInit {
   ngOnInit(): void {}
 
   // tslint:disable-next-line: typedef
-  isUserLoggedIn() {
+  isUserLoggedIn(): boolean {
+   
     const user = sessionStorage.getItem('nickname');
     if ((user === 'NC') || (user === null)){
       return false;
@@ -24,11 +25,19 @@ export class AuthenticationService implements OnInit {
   }
 
   isAdminLoggedIn(): boolean {
-    const user = sessionStorage.getItem('function');
+    /*const user = sessionStorage.getItem('function');
     console.log('idadminlogged - authentication');
     console.log(sessionStorage.getItem('function'));
-    console.log(!(user === null));
-    return (user === 'admin');
+    console.log(!(user === null));*/
+    
+    const role = sessionStorage.getItem('role');
+    if (this.isUserLoggedIn() && role === 'ADMIN'){
+
+     return true;
+   }else{
+     return false;
+   }
+
   }
 
   logout(): void
