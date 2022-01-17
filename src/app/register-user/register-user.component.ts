@@ -30,7 +30,8 @@ export class RegisterUserComponent implements OnInit {
 
   // Send code from param to "confirmUser" method and it will be confirmed in batabase
   confirm(): void{
-    this.httpClient.confirmUser(this.route.snapshot.paramMap.get('code')).subscribe(data => {
+    const stringCode = this.route.snapshot.paramMap.get('code');
+    this.httpClient.confirmUser(stringCode).subscribe(data => {
       alert(data[0]);
       this.router.navigate(['LoginComponent']);
     });
